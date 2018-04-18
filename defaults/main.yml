@@ -1,0 +1,6 @@
+---
+
+magento_version: 1
+
+magerun1_url: https://files.magerun.net/n98-magerun.phar
+magerun2_url: https://files.magerun.net/n98-magerun2.phar
