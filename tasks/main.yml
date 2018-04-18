@@ -1,0 +1,24 @@
+---
+
+- name: install magerun locally
+  get_url:
+    url: https://files.magerun.net/n98-magerun.phar
+    dest: /tmp/n98-magerun.phar
+  tags:
+    - magerun
+
+- name: install magerun globally
+  become: yes
+  shell: >
+    cp /tmp/n98-magerun.phar /usr/local/bin/magerun
+    creates=/usr/local/bin/magerun
+  tags:
+    - magerun
+
+- name: set permissions on magerun
+  become: yes
+  file:
+    path: /usr/local/bin/magerun
+    mode: "a+x"
+  tags:
+    - magerun
