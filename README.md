@@ -23,13 +23,19 @@ Dependencies
 ------------
 PHP
 
+Usage
+-----
+
+```
+# requirements.yml
+#
+#   Example
+# - src: https://github.com/ergontech-ansible-roles/magerun
+#   version: master
+#   name: magerun
+```
 
 License
 -------
 
-MIT
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+[MIT](LICENSE)
