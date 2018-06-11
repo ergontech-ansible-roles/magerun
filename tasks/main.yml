@@ -16,7 +16,8 @@
 - name: Copy magerun into /usr/loca/bin
   become: yes
   shell: "cp /tmp/magerun.phar /usr/local/bin/magerun"
-  creates: /usr/local/bin/magerun
+  args:
+    creates: /usr/local/bin/magerun
   tags:
     - magerun
 
