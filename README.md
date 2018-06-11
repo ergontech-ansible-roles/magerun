@@ -7,7 +7,16 @@ Installs and configures [Magerun](http://magerun.net/)
 Role Variables
 --------------
 
+```
 magento_version: 1 | 2
+
+magerun1_url: https://files.magerun.net/n98-magerun.phar
+magerun2_url: https://files.magerun.net/n98-magerun2.phar
+
+magerun_use_latest: true
+
+magerun_path: /usr/local/bin/magerun
+```
 
 
 Example Playbook
