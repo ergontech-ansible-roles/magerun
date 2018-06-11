@@ -12,7 +12,7 @@
   tags:
     - magerun
 
-- name: Check if n98-magerun needs to be udpated
+- name: Update n98-magerun if required
   become: yes
   command: magerun self-update
   register: magerun_update
