@@ -1,19 +1,17 @@
 ---
 
-# Get Download URL Based upon Magento version
-- set_fact:
-    download_url: "{{ magerun1_url if magento_version == 1 else magerun2_url }}"
-
 - name: Download magerun phar file
   get_url:
-    url: "{{ download_url }}"
+    url: "https://files.magerun.net/n98-magerun{{ 2 if magento_version == '2' else '' }}-{{ magerun_version }}.phar"
     dest: /tmp/magerun.phar
+    force: yes
 
 - name: "Copy magerun into {{ magerun_path }}"
   become: yes
-  shell: "cp /tmp/magerun.phar {{ magerun_path }}"
-  args:
-    creates: "{{ magerun_path }}"
+  copy:
+    src: /tmp/magerun.phar
+    remote_src: yes
+    dest: "{{ magerun_path }}"
 
 - name: Set permissions on magerun
   become: yes

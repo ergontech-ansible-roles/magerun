@@ -1,10 +1,5 @@
 ---
 
-magento_version: 1
-
-magerun1_url: https://files.magerun.net/n98-magerun.phar
-magerun2_url: https://files.magerun.net/n98-magerun2.phar
-
-magerun_use_latest: true
-
+magento_version: 2
+magerun_version: 3.0.5
 magerun_path: /usr/local/bin/magerun
