@@ -2,7 +2,7 @@
 
 - name: Download magerun phar file
   get_url:
-    url: "https://files.magerun.net/n98-magerun{{ '2' if magento_version == '2' else '' }}-{{ magerun_version }}.phar"
+    url: "https://files.magerun.net/n98-magerun{{ 2 if magento_version == '2' else '' }}-{{ magerun_version }}.phar"
     dest: /tmp/magerun.phar
     force: yes
 
@@ -16,5 +16,5 @@
 - name: Set permissions on magerun
   become: yes
   file:
-    path: /tmp/magerun.phar
+    path: "{{ magerun_path }}"
     mode: "a+x"

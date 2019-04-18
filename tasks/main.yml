@@ -16,6 +16,6 @@
     - magerun
 
 - include: install.yml
-  when: not magerun_installed.stat.exists or magerun_version not in magerun_installed_version.stdout_lines
+  when: not magerun_installed.stat.exists or magerun_version not in magerun_installed_version.stdout
   tags:
     - magerun
