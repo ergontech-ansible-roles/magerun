@@ -7,16 +7,15 @@
   tags:
     - magerun
 
-- include: install.yml
-  when: not magerun_installed.stat.exists
+- name: Ensure correct n98-magerun version
+  command: "{{ magerun_path }} -V"
+  register: magerun_installed_version
+  when: magerun_installed.stat.exists
+  changed_when: false
   tags:
     - magerun
 
-- name: Update n98-magerun if required
-  become: yes
-  command: magerun self-update
-  register: magerun_update
-  changed_when: "'You are using the latest n98-magerun version' in magerun_update.stdout_lines"
-  when: magerun_use_latest
+- include: install.yml
+  when: not magerun_installed.stat.exists or magerun_version not in magerun_installed_version.stdout_lines
   tags:
     - magerun
