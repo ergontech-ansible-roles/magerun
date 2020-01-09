@@ -12,10 +12,11 @@
   register: magerun_installed_version
   when: magerun_installed.stat.exists
   changed_when: false
+  ignore_errors: yes
   tags:
     - magerun
 
 - include: install.yml
-  when: not magerun_installed.stat.exists or magerun_version not in magerun_installed_version.stdout
+  when: not magerun_installed.stat.exists or magerun_version not in magerun_installed_version.stdout or magerun_installed_version.rc != 0
   tags:
     - magerun
